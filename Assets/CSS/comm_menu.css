@@ -13,6 +13,7 @@ body h1 > span {
   opacity: 0.5;
   font-weight: 300;
   font-size: 12px;
+  color: white;
 }
 body input + label {
   position: fixed;
@@ -30,7 +31,7 @@ body input + label span {
   margin-top: -1px;
   left: 0;
   display: block;
-  background: #020304;
+  background: white;
   transition: 0.5s;
 }
 body input + label span:first-child {
@@ -55,7 +56,7 @@ body input:checked + label span:last-child {
   transform: rotate(-405deg);
 }
 body input ~ nav {
-  background: white;
+  background: #131313;
   position: fixed;
   top: 0;
   left: 0;
@@ -88,9 +89,11 @@ body input ~ nav > ul > li > a {
   font-family: sans-serif;
   display: block;
   padding: 30px;
+  color: white;
+  width: auto;
 }
 body input ~ nav > ul > li > a:hover {
-  color: red;
+  color: var(--comm-col-blue);
 }
 body input:checked ~ nav {
   height: 100%;

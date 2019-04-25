@@ -54,12 +54,13 @@ header online-count {
 }
 
 .comm-col-1 {
-	color: var(--comm-col-1);
+	color: var(--comm-col-blue);
 	margin: 0px;
 	padding: 0px;
 }
 
 .comm-col-2 {
+	color: var(--comm-col-white) !important;
 	margin: 0px;
 	padding: 0px;
 }
@@ -67,4 +68,5 @@ header online-count {
 nav-title {
 	font-size: 30px;
 	z-index: 10;
+	color: white;
 }

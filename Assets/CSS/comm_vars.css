@@ -1,4 +1,7 @@
 :root {
-	--comm-col-1: #228cdb;
-	--comm-col-2: #303036;
+	--comm-col-blue: #228cdb;
+	--comm-col-dark: #303036;
+	--comm-col-grey: #dee5e5;
+	--comm-col-orange: #f45d01;
+	--comm-col-white: #fffff;
 }
