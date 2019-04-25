@@ -27,6 +27,7 @@ if ($err) {
   
     $format = json_decode($response, true);
     echo count($format);
+    asort($format);
 
 }
 
