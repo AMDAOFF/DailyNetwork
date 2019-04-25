@@ -4,7 +4,7 @@
 
 ------
 ### PROGRESS
-- [ ] A counter that shows all the players that is online (WORKING ON IT NOW)
+- [X] A counter that shows all the players that is online (WORKING ON IT NOW)
 - [ ] A table that shows all of the online player's name and id
 - [ ] A page where people should be able to apply for staff status
 - [ ] A server status page that shows if the server is online and health of the server
