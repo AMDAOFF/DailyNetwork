@@ -9,7 +9,7 @@ class Server
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "32012",
+            CURLOPT_PORT => $serverPort,
             CURLOPT_URL => "http://" . $serverIp . ":" . $serverPort .  "/info.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
@@ -39,6 +39,7 @@ class Server
         
     }
 
+    // Getting all of the server information
     function GetServerInfo($serverIp, $serverPort)
     {
     	$curl = curl_init();
@@ -48,7 +49,7 @@ class Server
 		    CURLOPT_RETURNTRANSFER => true,
 		    CURLOPT_ENCODING => "",
 		    CURLOPT_MAXREDIRS => 10,
-		    CURLOPT_TIMEOUT => 30,
+		    CURLOPT_TIMEOUT => 1,
 		    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		    CURLOPT_CUSTOMREQUEST => "GET",
 		    CURLOPT_POSTFIELDS => "",
