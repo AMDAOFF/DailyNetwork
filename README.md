@@ -2,8 +2,6 @@
 ------
 ###### AUTHOR: Kristian Biehl Kuhrt  [( AverHosting CEO )](https://averhosting.com "AverHosting")
 
-<br>
-
 ------
 ### PROGRESS
 - [ ] A counter that shows all the players that is online
