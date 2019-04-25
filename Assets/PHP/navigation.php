@@ -13,9 +13,10 @@
 
     <nav>    
       <ul>
-        <li><a href="#">Link #1</a></li>
-        <li><a href="#">Link #2</a></li>
-        <li><a href="#">Link #3</a></li>
+        <li><a href="#">HJEM</a></li>
+        <li><a href="#">SERVERE</a></li>
+        <li><a href="#">ONLINE NU</a></li>
+        <li><a href="#">ANSØG</a></li>
       </ul>  
     </nav>
 </top-navigation>
