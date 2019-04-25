@@ -7,13 +7,50 @@ html, body {
 
 
 header {
-	background-color: black;
+	text-align: center;
+
 	width: 100%;
 	height: 100vh;
+
+	background-color: rgba(48, 48, 54, 0.6);
+	background-blend-mode: multiply;
+	background-size: cover;
+	background-position: center;
+	background-image: url('../IMG/header-main.jpg');
 }
 
 header-middle {
 	color:  white;
+
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left:  50%;
+	top: 45%;
+}
+
+header page-title {
+	margin: 0px;
+	padding: 0px;
+
+	font-size: 40px;
+}
+
+header page-slogan {
+	font-size: 20px;
+	position: relative;
+	top: -10px;
+}
+
+header online-count {
+	margin: 0px;
+
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+
+	color: white;
+
+	font-size: 25px;
 }
 
 .comm-col-1 {

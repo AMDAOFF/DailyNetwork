@@ -2,8 +2,13 @@
 
     require "Components/PHP/autoload.php";
 
+
+    $serverIp = "134.255.220.70";
+    $serverPort = "32012";
+
     // Getting all of the online players
-    $players = $server->GetOnlineUsers();
+    $players = $server->GetOnlineUsers($serverIp, $serverPort);
+    $info = $server->GetServerInfo($serverIp, $serverPort);
 
 ?>
 
@@ -26,13 +31,20 @@
         </header-top>
 
         <header-middle>
-            <h1>
+            <page-title>
                 <span class="comm-col-1">Daily</span>
                 <span class="comm-col-2">Network</span>
-            </h1>
+            </page-title>
+            <br>
+            <page-slogan>
+                SOME SLOGAN THAT SOUNDS NICE GOES HERE
+            </page-slogan>
         </header-middle>
 
         <header-buttom>
+            <online-count>
+                ONLINE SPILLERE: <?php echo count($players); ?>
+            </online-count>
         </header-buttom>
     </header>
 </body>
