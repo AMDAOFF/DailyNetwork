@@ -9,6 +9,7 @@
     // Getting all of the online players
     $players = $server->GetOnlineUsers($serverIp, $serverPort);
     $info = $server->GetServerInfo($serverIp, $serverPort);
+    $test = $server->GetServerList();
 
 ?>
 
@@ -28,7 +29,7 @@
 </head>
 <body>
 
-    <?php include('Assets/PHP/navigation.php'); ?>
+    <!-- <?php include('Assets/PHP/navigation.php'); ?> -->
 
     <header>
         <header-top>

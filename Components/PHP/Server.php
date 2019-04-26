@@ -35,8 +35,7 @@ class Server
             $format = json_decode($response, true);
             asort($format);
             return $format;
-        }
-        
+        }  
     }
 
     // Getting all of the server information
@@ -71,6 +70,29 @@ class Server
             asort($format);
             return $format;
 		}
+    }
+
+    function GetServerList()
+    {
+    	require 'Assets/PHP/Includes/connection.php';
+
+    	$sql = "SELECT * FROM daily_servers";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0) {
+
+			$array = array();
+
+			while($row = $result->fetch_assoc()) {
+		        array_push($array, $row);
+		    }
+
+		    return $array;
+		} else {
+		    return null;
+		}
+
+		mysqli_close($conn);
     }
 }
 ?> 
