@@ -1,0 +1,35 @@
+.server-item {
+	background-color: red;
+   	width: 500px;
+   	margin: 10px;
+}
+
+.server-item h1 {
+	text-align: center;
+	width: 100%;
+	margin: 0px;
+	color: white;
+}
+
+.server-item p {
+	text-align: center;
+}
+
+.server-item img {
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px;
+}
+
+.server-item-head {
+	display: flex !important;
+   	align-items:center !important;
+   	background-color: #131313 !important;
+}
+
+.server-row {
+	display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}

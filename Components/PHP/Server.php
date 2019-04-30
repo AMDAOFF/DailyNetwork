@@ -10,7 +10,7 @@ class Server
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_PORT => $serverPort,
-            CURLOPT_URL => "http://" . $serverIp . ":" . $serverPort .  "/info.json",
+            CURLOPT_URL => "http://" . $serverIp . ":" . $serverPort .  "/players.json",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -70,6 +70,21 @@ class Server
             asort($format);
             return $format;
 		}
+    }
+
+    function ServerOnline($serverIp, $serverPort)
+    {
+        $connection = @fsockopen($serverIp, $serverPort);
+
+        if (is_resource($connection))
+        {
+            fclose($connection);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     function GetServerList()
