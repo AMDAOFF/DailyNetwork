@@ -71,6 +71,7 @@ class Server
 		}
     }
 
+    // Checking if the server is online
     function ServerOnline($serverIp, $serverPort)
     {
         $connection = @fsockopen($serverIp, $serverPort);
@@ -86,6 +87,7 @@ class Server
         }
     }
 
+    // Getting all of the servers from the database
     function GetServerList()
     {
     	require 'Assets/PHP/Includes/connection.php';

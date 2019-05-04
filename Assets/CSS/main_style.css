@@ -71,3 +71,7 @@ nav-title {
 	z-index: 10;
 	color: white;
 }
+
+.player-id {
+	color: red;
+}

@@ -39,28 +39,26 @@
 </head>
 <body>
 
-<?php include('Assets/PHP/navigation.php'); ?>
+    <?php include('Assets/PHP/navigation.php'); ?>
+    <br><br><br>
+    <br><br><br>
+    <?php 
+        for ($i=0; $i < count($serversInfo); $i++) { 
+            echo "<h1>" . $serverList[$i]["server_name"] . "";
+            if (!empty($serversInfo[$i])) {
+                echo " {" . count($serversInfo[$i]) . "}</h1>";
+                echo "<ol>";
+                    foreach ($serversInfo[$i] as $item) {
+                        echo '<li><span class="player-id">' . $item["id"] . "</span> " . $item["name"] . "</li>";
+                    }
+                echo "</ol>";
+            }
 
-    <header>
-        <header-top>
-        </header-top>
+            else {
+                echo " {0}</h1>";
+            }
+        }
+    ?>
 
-        <header-middle>
-            <page-title>
-                <span class="comm-col-1">Daily</span>
-                <span class="comm-col-2">Network</span>
-            </page-title>
-            <br>
-            <page-slogan>
-                SOME SLOGAN THAT SOUNDS NICE GOES HERE
-            </page-slogan>
-        </header-middle>
-
-        <header-buttom>
-            <online-count>
-                ONLINE MEDLEMMER: <?php echo $comOnlinePlayers; ?>
-            </online-count>
-        </header-buttom>
-    </header>
 </body>
 </html>
