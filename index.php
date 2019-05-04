@@ -2,12 +2,26 @@
 
     require "Components/PHP/autoload.php";
 
+    $serverList = $server->GetServerList();
 
-    $serverIp = "134.255.220.70";
-    $serverPort = "32012";
+    $serversInfo = array();
+    $players = array();
 
-    // Getting all of the online players
-    $players = $server->GetOnlineUsers($serverIp, $serverPort);
+    $comOnlinePlayers = 0;
+
+    foreach ($serverList as $serveritem) {
+        array_push($serversInfo, $server->GetOnlineUsers($serveritem["server_ip"], $serveritem["server_port"]));
+    }
+
+    for ($i=0; $i < count($serversInfo); $i++) { 
+        if (empty($serversInfo[$i])) {
+            $comOnlinePlayers += 0;
+        }
+
+        else {
+            $comOnlinePlayers += count($serversInfo[$i]);
+        }
+    }
 
 ?>
 
@@ -46,14 +60,7 @@
 
         <header-buttom>
             <online-count>
-                ONLINE SPILLERE: 
-                <?php if (!empty($players)) {
-                    echo count($players);
-                }
-
-                else {
-                    echo 0;
-                } ?>
+                ONLINE SPILLERE: <?php echo $comOnlinePlayers; ?>
             </online-count>
         </header-buttom>
     </header>

@@ -33,7 +33,6 @@ class Server
             
         } else {
             $format = json_decode($response, true);
-            asort($format);
             return $format;
         }  
     }

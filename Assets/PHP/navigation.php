@@ -13,8 +13,8 @@
 
     <nav>    
       <ul>
-        <li><a href="#">HJEM</a></li>
-        <li><a href="#">SERVERE</a></li>
+        <li><a href="index.php">HJEM</a></li>
+        <li><a href="servers.php">SERVERE</a></li>
         <li><a href="#">ONLINE NU</a></li>
         <li><a href="#">ANSØG</a></li>
       </ul>  
