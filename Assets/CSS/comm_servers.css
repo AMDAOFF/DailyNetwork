@@ -1,7 +1,8 @@
 .server-item {
-	background-color: red;
-   	width: 500px;
+	background-color: #303030;
+   	width: 700px;
    	margin: 10px;
+   	color: white;
 }
 
 .server-item h1 {
@@ -16,12 +17,6 @@
 	text-align: center;
 }
 
-.server-item img {
-	vertical-align: middle;
-	margin: 0px;
-	padding: 0px;
-}
-
 .server-item-head {
 	display: flex !important;
    	align-items:center !important;
@@ -33,4 +28,43 @@
    flex-direction: row;
    align-items: center;
    justify-content: center;
+}
+
+.server-icon {
+	border-radius: 100px;
+	margin: 10px;
+	vertical-align: middle;
+	padding: 0px;
+	width: 100px;
+	height: 100px;
+}
+
+.connect-btn {
+	background-color: #228cdb;
+	border: solid #228cdb 2px;
+	padding: 10px 20px 10px 20px;
+	color: black;
+	text-decoration: none;
+	transition: all 1s ease;
+	position: absolute;
+	transform: translate(-50%);
+	left: 50%;
+}
+
+.connect-btn-offline {
+	background-color: #f45d01;
+	border: solid #f45d01 2px;
+	padding: 10px 20px 10px 20px;
+	color: black;
+	text-decoration: none;
+	transition: all 1s ease;
+	position: absolute;
+	transform: translate(-50%);
+	left: 50%;
+	pointer-events: none;
+}
+
+.connect-btn:hover {
+	background-color: transparent;
+	color: white;
 }

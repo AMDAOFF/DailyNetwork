@@ -42,17 +42,24 @@ P<?php
                 echo '<div class="server-item">';
                     echo '<div class="server-item-head">';
                         if ($info["icon"] != "") {
-                            echo '<img src="data:image/png;base64, ' . $info["icon"] . '" width="100px"/>';
+                            echo '<img class="server-icon" src="data:image/png;base64, ' . $info["icon"] . '"/>';
                         }
 
                         else
                         {
-                            echo '<img src="Assets/IMG/offline.png" width="100px"/>';
+                            echo '<img class="server-icon" src="Assets/IMG/offline.png"/>';
                         }
 
                         echo '<h1>' . $servers[$i]["server_name"] . '</h1>';
                     echo '</div>';
                     echo '<p>PLAYERS ONLINE: ' . $online . '</p>';
+                    if ($serverOnline) {
+                        echo "<a class='connect-btn' href='fivem://connect/" . $servers[$i]["server_ip"] . ":" .  $servers[$i]["server_port"]  . "''>CONNECT</a><br><br><br>";
+                    }
+
+                    else {
+                        echo "<a class='connect-btn-offline' href='fivem://connect/" . $servers[$i]["server_ip"] . ":" .  $servers[$i]["server_port"]  . "''>CONNECT</a><br><br><br>";
+                    }
                 echo '</div>';
             echo '</div>';
         }

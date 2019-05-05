@@ -42,23 +42,29 @@
     <?php include('Assets/PHP/navigation.php'); ?>
     <br><br><br>
     <br><br><br>
+    <div class="items">
     <?php 
         for ($i=0; $i < count($serversInfo); $i++) { 
-            echo "<h1>" . $serverList[$i]["server_name"] . "";
-            if (!empty($serversInfo[$i])) {
-                echo " {" . count($serversInfo[$i]) . "}</h1>";
-                echo "<ol>";
-                    foreach ($serversInfo[$i] as $item) {
-                        echo '<li><span class="player-id">' . $item["id"] . "</span> " . $item["name"] . "</li>";
-                    }
-                echo "</ol>";
-            }
+            echo '<div class="collapse-container">';
+                echo '<button class="collapsible">' . $serverList[$i]["server_name"] . '</button>';
+                echo '<div class="content">';
+                if (!empty($serversInfo[$i])) {
+                    echo "<ol>";
+                        foreach ($serversInfo[$i] as $item) {
+                            echo '<li><span class="player-id">' . $item["id"] . "</span> " . $item["name"] . "</li>";
+                        }
+                    echo "</ol>";
+                }
 
-            else {
-                echo " {0}</h1>";
-            }
+                else {
+                    echo "INGEN ONLINE SPILLERE";
+                }
+                echo "</div>";
+            echo "</div>";
         }
     ?>
+    </div>
+    <script type="text/javascript" src="Assets/JS/expandables.js"></script>
 
 </body>
 </html>

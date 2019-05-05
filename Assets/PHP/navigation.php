@@ -15,8 +15,8 @@
       <ul>
         <li><a href="index.php">HJEM</a></li>
         <li><a href="servers.php">SERVERE</a></li>
-        <li><a href="#">ONLINE NU</a></li>
-        <li><a href="#">ANSØG</a></li>
+        <li><a href="players.php">ONLINE NU</a></li>
+        <li><a href="apply.php">ANSØG</a></li>
       </ul>  
     </nav>
 </top-navigation>
