@@ -1,6 +1,6 @@
 ## ![](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon24.png "Logo Title Text 1")  DailyNetwork Website
 ------
-###### AUTHOR: Kristian Biehl Kuhrt  [( AverHosting CEO )](https://averhosting.com "AverHosting")
+###### AUTHOR: Kristian Biehl Kuhrt  [( AverHosting )](https://averhosting.com "AverHosting")
 
 ------
 ### PROGRESS
