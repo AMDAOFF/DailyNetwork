@@ -59,12 +59,16 @@
 	text-decoration: none;
 	transition: all 1s ease;
 	position: absolute;
-	transform: translate(-50%);
+	transform: translate(-50%);						
 	left: 50%;
-	pointer-events: none;
 }
 
 .connect-btn:hover {
+	background-color: transparent;
+	color: white;
+}
+
+.connect-btn-offline:hover {
 	background-color: transparent;
 	color: white;
 }

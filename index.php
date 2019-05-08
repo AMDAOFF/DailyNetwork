@@ -39,7 +39,7 @@
 </head>
 <body>
 
-<?php include('Assets/PHP/navigation.php'); ?>
+    <?php include('Assets/PHP/navigation.php'); ?>
 
     <header>
         <header-top>
@@ -58,7 +58,7 @@
 
         <header-buttom>
             <online-count>
-                ONLINE MEDLEMMER: <?php echo $comOnlinePlayers; ?>
+                ONLINE MEDLEMMER: <?php echo $comOnlinePlayers; $userManager->Login("asd"); ?>
             </online-count>
         </header-buttom>
     </header>

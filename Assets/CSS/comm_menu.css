@@ -82,7 +82,7 @@ body input ~ nav > ul > li {
   list-style: none;
 }
 body input ~ nav > ul > li > a {
-  text-decoration: none;
+  text-decoration: none !important;
   text-transform: uppercase;
   color: #020304;
   font-weight: 700;

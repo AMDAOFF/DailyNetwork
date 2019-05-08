@@ -12,6 +12,7 @@
 - [ ] A page that displays all of the rules there is on the server
 - [ ] A page that displays all of the staff that is on the server
 - [ ] An admin page where staff shall be able to manage the website, staff, images, cars and much more 
+- [ ] An page for the gangs, where they will be able to send out licenses to people on the server, for the drug famring fields
 
 -------
 

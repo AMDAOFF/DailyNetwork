@@ -54,11 +54,11 @@ P<?php
                     echo '</div>';
                     echo '<p>PLAYERS ONLINE: ' . $online . '</p>';
                     if ($serverOnline) {
-                        echo "<a class='connect-btn' href='fivem://connect/" . $servers[$i]["server_ip"] . ":" .  $servers[$i]["server_port"]  . "''>CONNECT</a><br><br><br>";
+                        echo "<a class='connect-btn' href='fivem://connect/" . $servers[$i]["server_ip"] . ":" .  $servers[$i]["server_port"]  . "''>FORBIND</a><br><br><br>";
                     }
 
                     else {
-                        echo "<a class='connect-btn-offline' href='fivem://connect/" . $servers[$i]["server_ip"] . ":" .  $servers[$i]["server_port"]  . "''>CONNECT</a><br><br><br>";
+                        echo "<a class='connect-btn-offline'>OFFLINE</a><br><br><br>";
                     }
                 echo '</div>';
             echo '</div>';
