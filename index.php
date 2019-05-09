@@ -1,24 +1,26 @@
 <?php
-    require "Components/PHP/autoload.php";
+    require "Assets/PHP/Includes/settings.php";
+    require $AutoLoadPath;
 
     $serverList = $server->GetServerList();
-
-    $serversInfo = array();
-    $players = array();
-
     $comOnlinePlayers = 0;
 
+    // Counting all of the online players for all of the servers
     foreach ($serverList as $serveritem) {
-        array_push($serversInfo, $server->GetOnlineUsers($serveritem["server_ip"], $serveritem["server_port"]));
-    }
+        
+        // Pinging the server to see if the server is online
+        $serverOnline = $server->ServerOnline($serveritem["server_ip"], $serveritem["server_port"]);
 
-    for ($i=0; $i < count($serversInfo); $i++) { 
-        if (empty($serversInfo[$i])) {
-            $comOnlinePlayers += 0;
-        }
+        // Checking if the server is online, if it is it will count the online players
+        if ($serverOnline) {
+            $sinfo = $server->GetOnlineUsers($serveritem["server_ip"], $serveritem["server_port"]);
+            if (empty($sinfo)) {
+                $comOnlinePlayers += 0;
+            }
 
-        else {
-            $comOnlinePlayers += count($serversInfo[$i]);
+            else {
+                $comOnlinePlayers += count($sinfo);
+            }
         }
     }
 ?>

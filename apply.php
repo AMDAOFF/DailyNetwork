@@ -1,3 +1,8 @@
+<?php 
+	require "Assets/PHP/Includes/settings.php";
+	require $AutoLoadPath;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -92,23 +92,31 @@ class Server
     {
     	require 'Assets/PHP/Includes/connection.php';
 
-    	$sql = "SELECT * FROM daily_servers";
-		$result = mysqli_query($conn, $sql);
+        $sql = "SELECT * FROM daily_servers";
+        $records = $conn->prepare('SELECT * FROM daily_servers');
+		
+        //$records->bindParam(':email', $_POST['email']);
+        $records->execute();
+        $array = array();
 
-		if (mysqli_num_rows($result) > 0) {
+        foreach ($records as $row) {
+            array_push($array, $row);
+        }
 
-			$array = array();
+		// if (mysqli_num_rows($result) > 0) {
 
-			while($row = $result->fetch_assoc()) {
-		        array_push($array, $row);
-		    }
+		// 	$array = array();
 
-		    return $array;
-		} else {
-		    return null;
-		}
+		// 	while($row = $result->fetch_assoc()) {
+		//         array_push($array, $row);
+		//     }
 
-		mysqli_close($conn);
+		//     return $array;
+		// } else {
+		//     return null;
+		// }
+
+		// mysqli_close($conn);
     }
 }
 ?> 

@@ -1,5 +1,5 @@
 <?php
-    require "Components/PHP/autoload.php";
+    require $AutoLoadPath;
 
     $serverList = $server->GetServerList();
 

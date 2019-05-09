@@ -4,9 +4,9 @@
 	$password = "";
 	$dbname = "dailynetwork";
 	
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-	if (!$conn) {
-	    die("Connection failed: " . mysqli_connect_error());
+	try{
+		$conn = new PDO("mysql:host=$servername;dbname=$dbname;", $username, $password);
+	} catch(PDOException $e){
+		die( "Connection failed: " . $e->getMessage());
 	}
 ?>

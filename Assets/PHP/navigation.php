@@ -13,11 +13,11 @@
 
     <nav>    
       <ul>
-        <li><a href="/index.php">HJEM</a></li>
-        <li><a href="/servers.php">SERVERE</a></li>
-        <li><a href="/players.php">ONLINE NU</a></li>
-        <li><a href="/apply.php">ANSØG</a></li>
-        <li><a href="/Account/index.php">DIN BRUGER</a></li>
+        <li><a href="<?php echo $BasePath; ?>index.php">HJEM</a></li>
+        <li><a href="<?php echo $BasePath; ?>servers.php">SERVERE</a></li>
+        <li><a href="<?php echo $BasePath; ?>players.php">ONLINE NU</a></li>
+        <li><a href="<?php echo $BasePath; ?>apply.php">ANSØG</a></li>
+        <li><a href="<?php echo $BasePath; ?>Account/index.php">DIN BRUGER</a></li>
       </ul>  
     </nav>
 </top-navigation>

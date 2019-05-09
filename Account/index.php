@@ -1,3 +1,8 @@
+<?php 
+	require ""
+	require $AutoLoadPath;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,34 +20,30 @@
 <body>
 	<?php include('../Assets/PHP/navigation.php'); ?>
 	<br><br><br><br><br>
-
-	<center>
-		<h1>
-			
-				DailyNetwork Signin
-			
-		</h1>
-		<p>Sign in to DailyNetwork community servers</p>
-
-		<div class="row">
-			<div class="col-sm-4">
-			</div>
-
-			<div class="col-sm-4">
-				<form action="" method="post">
-					<input placeholder="Dit Navn..." class="form-control" type="text" name="name"><br>
-					<input placeholder="Din Email..." class="form-control" type="email" name="email"><br>
-					<input placeholder="Dit Brugernavn..." class="form-control" type="text" name="identifier"><br>
-					<input placeholder="Dit SteamID..." class="form-control" type="text" name="steamid"><br>
-					<input placeholder="Dit Ingame ID..." class="form-control" type="number" name="ingameid"><br>
-					<input placeholder="Dit Ingame Navn..." class="form-control" type="text" name="ingameid"><br>
-					<input placeholder="" class="btn btn-outline-info" type="submit" value="Register">
-				</form>
-			</div>
-
-			<div class="col-sm-4">
-			</div>
+	
+	<div class="row">
+		<div class="col-sm-4">
 		</div>
-	</center>
+
+		<div class="col-sm-4">
+			<center>
+				<h1>DAILYNETWORK SIGNIN</h1>
+				<p>SIGN INTO YOUR DAILY NETWORK ACCOUNT</p>
+			</center>
+
+			<form action="" method="">
+				<input class="form-control" type="text" name="cred" placeholder="Email eller brugernavn..."><br>
+				<input class="form-control" type="password" name="pass" placeholder="Password..."><br>
+				<center>
+					<input type="submit" class="btn btn-outline-success" value="Log Ind">
+					<a href="register.php" class="btn btn-outline-info">Registrer</a>
+				</center>
+			</form>
+		</div>
+
+		<div class="col-sm-4">
+		</div>
+	</div>
+
 </body>
 </html>

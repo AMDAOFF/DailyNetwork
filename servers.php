@@ -1,4 +1,4 @@
-P<?php
+<?php
     require "Components/PHP/autoload.php";
     $servers = $server->GetServerList();
 ?>
@@ -26,22 +26,24 @@ P<?php
     <?php 
         for ($i=0; $i < count($servers); $i++) { 
             $serverOnline = $server->ServerOnline($servers[$i]["server_ip"], $servers[$i]["server_port"]);
-            $info = $server->GetServerInfo($servers[$i]["server_ip"], $servers[$i]["server_port"]);
             $online;
+            $info;
 
             if ($serverOnline) {
+                $info = $server->GetServerInfo($servers[$i]["server_ip"], $servers[$i]["server_port"]);
                 $online = count($server->GetOnlineUsers($servers[$i]["server_ip"], $servers[$i]["server_port"]));
             }
 
             else
             {
                 $online = 0;
+                $info = null;
             }
 
             echo '<div class="server-row">';
                 echo '<div class="server-item">';
                     echo '<div class="server-item-head">';
-                        if ($info["icon"] != "") {
+                        if ($serverOnline && $info["icon"] != "") {
                             echo '<img class="server-icon" src="data:image/png;base64, ' . $info["icon"] . '"/>';
                         }
 
