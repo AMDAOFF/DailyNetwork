@@ -22,7 +22,7 @@
 
 			if (password_verify($UserData['password'], $results['user_password'])) {
 				$_SESSION['user_data'] = $results;
-				header("Location: /Account/index.php");
+				header("Location: /Account");
 			}
 
 			else {
@@ -77,7 +77,7 @@
 		{
 			session_destroy();
 			session_unset();
-			header("Location:" . $BasePath);
+			header("Location: /");
 		}
 	}
 ?>

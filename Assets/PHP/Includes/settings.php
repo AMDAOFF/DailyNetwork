@@ -1,6 +1,6 @@
 <?php 
 
-	$BasePath = $_SERVER["DOCUMENT_ROOT"] . "/DailyNetwork/DailyNetwork/";
-	$AutoLoadPath = $_SERVER["DOCUMENT_ROOT"] . "/DailyNetwork/DailyNetwork/Components/PHP/autoload.php";
+	$BasePath = $_SERVER["DOCUMENT_ROOT"] . "/";
+	$AutoLoadPath = $_SERVER["DOCUMENT_ROOT"] . "/Components/PHP/autoload.php";
 	
 ?>
