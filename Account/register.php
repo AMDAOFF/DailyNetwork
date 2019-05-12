@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
 </head>
 <body>
-	<?php include('../Assets/PHP/navigation.php'); ?>
+	<!-- <?php include('../Assets/PHP/navigation.php'); ?> -->
 	<br><br><br><br><br>
 	<br><br><br><br><br>
 

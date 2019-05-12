@@ -41,35 +41,61 @@
 
 		}
 
+		function CheckExistance($Value)
+		{
+			include '../Assets/PHP/Includes/connection.php';
+			echo "CHECKING...";
+			$records = $conn->prepare('SELECT * FROM daily_users WHERE user_email = :email OR user_steamid = :steamid OR user_identifier = :identifier');
+			$records->bindParam(':email', $UserData['email']);
+			$records->bindParam(':steamid', $UserData['steamid']);
+			$records->bindParam(':identifier', $UserData['identifier']);
+			$records->execute();
+			$results = $records->fetch(PDO::FETCH_ASSOC);
+
+			if (count($results) > 0) {
+				return false;
+			}
+
+			else {
+				return true;
+			}
+		}
+
 		// Registering a new user...
 		function Register($UserData)
 		{
 			include '../Assets/PHP/Includes/connection.php';
 
-			// Enter the new user in the database
-			$sql = "INSERT INTO daily_users (user_name, user_identifier, user_email, user_ingameid, user_steamid, user_ingamename, user_password) VALUES (:name, :identifier, :email, :ingameid, :steamid, :ingamename, :password)";
-			$stmt = $conn->prepare($sql);
+			$exists = $this->CheckExistance($UserData);
+			if ($exists == false) {
+				$sql = "INSERT INTO daily_users (user_name, user_identifier, user_email, user_ingameid, user_steamid, user_ingamename, user_password) VALUES (:name, :identifier, :email, :ingameid, :steamid, :ingamename, :password)";
+				$stmt = $conn->prepare($sql);
 
-			$userpass = password_hash($UserData['password'], PASSWORD_BCRYPT);
+				$userpass = password_hash($UserData['password'], PASSWORD_BCRYPT);
 
-			echo $userpass;
+				echo $userpass;
 
-			$stmt->bindParam(':name', $UserData['name']);
-			$stmt->bindParam(':identifier', $UserData['identifier']);
-			$stmt->bindParam(':email', $UserData['email']);
-			$stmt->bindParam(':steamid', $UserData['steamid']);
-			$stmt->bindParam(':ingameid', $UserData['ingameid']);
-			$stmt->bindParam(':ingamename', $UserData['ingamename']);
-			$stmt->bindParam(':password', $userpass);
+				$stmt->bindParam(':name', $UserData['name']);
+				$stmt->bindParam(':identifier', $UserData['identifier']);
+				$stmt->bindParam(':email', $UserData['email']);
+				$stmt->bindParam(':steamid', $UserData['steamid']);
+				$stmt->bindParam(':ingameid', $UserData['ingameid']);
+				$stmt->bindParam(':ingamename', $UserData['ingamename']);
+				$stmt->bindParam(':password', $userpass);
 
-			if( $stmt->execute() ) {
-				return 'Du er nu oprettet som et medlem på DailyNetwork.dk';
+				if( $stmt->execute() ) {
+					return 'Du er nu oprettet som et medlem på DailyNetwork.dk';
+				}
+
+				else {
+					return 'En bruger findes allerede med disse oplysninger';
+				}
 			}
 
 			else {
-				return 'Der skete en fejl i oprettelsen';
-				// print_r($stmt->errorInfo()[2]);
+				return "UNKNOWN ERROR";
 			}
+
 		}
 
 		// Signing out the user that is signed in...

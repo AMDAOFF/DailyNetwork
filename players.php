@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'Assets/PHP/Includes/settings.php';
     require $AutoLoadPath;
 
     $serverList = $server->GetServerList();

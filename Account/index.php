@@ -62,7 +62,7 @@
 
 		<h1>WELCOME, <?php echo $_SESSION["user_data"]["user_identifier"]; ?></h1>
 		<form action="" method="post">
-			<input type="submit" name="signout" value="Log Ud">
+			<input type="submit" name="signout" value="Log Ud" class="btn btn-outline-danger">
 		</form>
 
 	<?php endif ?>
