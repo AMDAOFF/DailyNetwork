@@ -103,6 +103,8 @@ class Server
             array_push($array, $row);
         }
 
+        return $array;
+
 		// if (mysqli_num_rows($result) > 0) {
 
 		// 	$array = array();

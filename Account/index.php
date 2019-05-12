@@ -1,5 +1,5 @@
 <?php 
-	require ""
+	require "../Assets/PHP/Includes/settings.php";
 	require $AutoLoadPath;
 ?>
 
@@ -21,7 +21,7 @@
 	<?php include('../Assets/PHP/navigation.php'); ?>
 	<br><br><br><br><br>
 	
-	<div class="row">
+	<div class="row mr-auto">
 		<div class="col-sm-4">
 		</div>
 

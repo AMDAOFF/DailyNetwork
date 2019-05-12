@@ -6,7 +6,7 @@
     $comOnlinePlayers = 0;
 
     // Counting all of the online players for all of the servers
-    foreach ($serverList as $serveritem) {
+    foreach ((array) $serverList as $serveritem) {
         
         // Pinging the server to see if the server is online
         $serverOnline = $server->ServerOnline($serveritem["server_ip"], $serveritem["server_port"]);

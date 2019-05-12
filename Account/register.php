@@ -1,11 +1,9 @@
 <?php 
-	require "../Components/PHP/Settings.php";
-	echo $AutoLoadPath;
+	require "../Assets/PHP/Includes/settings.php";
+	require $AutoLoadPath;
 
 	if (!empty($_POST)) {
-		
-		$user->Register($_POST);
-
+		$userManager->Register($_POST);
 	}
 ?>
 
@@ -26,8 +24,9 @@
 <body>
 	<!-- <?php include('../Assets/PHP/navigation.php'); ?> -->
 	<br><br><br><br><br>
+	<br><br><br><br><br>
 
-	<div class="row">
+	<div class="row mr-auto">
 			<div class="col-sm-4">
 			</div>
 
@@ -37,12 +36,13 @@
 					<p>Sign in to DailyNetwork community servers</p>
 
 					<form action="" method="post">
-						<input placeholder="Dit Navn..." class="form-control" type="text" name="name"><br>
-						<input placeholder="Din Email..." class="form-control" type="email" name="email"><br>
-						<input placeholder="Dit Brugernavn..." class="form-control" type="text" name="identifier"><br>
-						<input placeholder="Dit SteamID..." class="form-control" type="text" name="steamid"><br>
-						<input placeholder="Dit Ingame ID..." class="form-control" type="number" name="ingameid"><br>
-						<input placeholder="Dit Ingame Navn..." class="form-control" type="text" name="ingameid"><br>
+						<input class="form-control" type="text" name="name" placeholder="Navn..."><br>
+						<input class="form-control" type="email" name="email" placeholder="Email..."><br>
+						<input class="form-control" type="text" name="identifier" placeholder="Brugernavn..."><br>
+						<input class="form-control" type="text" name="steamid" placeholder="SteamID..."><br>
+						<input class="form-control" type="number" name="ingameid" placeholder="Ingame ID..."><br>
+						<input class="form-control" type="text" name="ingamename" placeholder="Ingame Navn..."><br>
+						<input class="form-control" type="password" name="password" placeholder="Password..."><br>
 						<input placeholder="" class="btn btn-outline-info" type="submit" value="Register">
 					</form>
 				</center>
@@ -51,9 +51,5 @@
 			<div class="col-sm-4">
 			</div>
 		</div>
-
-		<?php 
-			echo "<img src='" . $TestImage . "'>";
-		?>
 </body>
 </html>
