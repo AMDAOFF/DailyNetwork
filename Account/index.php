@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
 </head>
 <body>
-	<?php include('../Assets/PHP/navigation.php'); ?>
+	<?php include('../Assets/PHP/navigation.php'); ?> 
 	<br><br><br><br><br>
 	
 	<?php if (!isset($_SESSION["user_data"])): ?>
@@ -60,7 +60,7 @@
 
 	<?php else: ?>
 
-		<h1>WELCOME, <?php echo $_SESSION["user_data"]["user_identifier"]; ?></h1>
+		<h1>WELCOME, <?php echo $_SESSION["user_data"]["user_identifier"] . " - " . $_SESSION["user_data"]["role_name"]; ?></h1>
 		<form action="" method="post">
 			<input type="submit" name="signout" value="Log Ud" class="btn btn-outline-danger">
 		</form>

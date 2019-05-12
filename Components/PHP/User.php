@@ -11,12 +11,14 @@
 		{
 			include '../Assets/PHP/Includes/connection.php';
 
-			$records = $conn->prepare('SELECT * FROM daily_users WHERE user_email = :email OR user_steamid = :steamid OR user_identifier = :identifier');
+			$records = $conn->prepare('SELECT * FROM daily_users INNER JOIN daily_roles ON daily_users.user_role = daily_roles.role_id WHERE user_email = :email OR user_steamid = :steamid OR user_identifier = :identifier');
 			$records->bindParam(':email', $UserData['credis']);
 			$records->bindParam(':steamid', $UserData['credis']);
 			$records->bindParam(':identifier', $UserData['credis']);
 			$records->execute();
 			$results = $records->fetch(PDO::FETCH_ASSOC);
+
+			print_r($results);
 
 			$message = '';
 
