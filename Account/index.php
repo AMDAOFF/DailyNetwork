@@ -1,6 +1,15 @@
 <?php 
+	session_start();
 	require "../Assets/PHP/Includes/settings.php";
 	require $AutoLoadPath;
+
+	if (!empty($_POST["signout"])) {
+		$userManager->Logout($_POST);
+	}
+
+	if (!empty($_POST["credis"]) && !empty($_POST["password"])) {
+		$message = $userManager->Login($_POST);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -21,29 +30,42 @@
 	<?php include('../Assets/PHP/navigation.php'); ?>
 	<br><br><br><br><br>
 	
-	<div class="row mr-auto">
-		<div class="col-sm-4">
-		</div>
+	<?php if (!isset($_SESSION["user_data"])): ?>
+		<div class="row mr-auto">
+			<div class="col-sm-4">
+			</div>
 
-		<div class="col-sm-4">
-			<center>
-				<h1>DAILYNETWORK SIGNIN</h1>
-				<p>SIGN INTO YOUR DAILY NETWORK ACCOUNT</p>
-			</center>
-
-			<form action="" method="">
-				<input class="form-control" type="text" name="cred" placeholder="Email eller brugernavn..."><br>
-				<input class="form-control" type="password" name="pass" placeholder="Password..."><br>
+			<div class="col-sm-4">
 				<center>
-					<input type="submit" class="btn btn-outline-success" value="Log Ind">
-					<a href="register.php" class="btn btn-outline-info">Registrer</a>
+					<h1>DAILYNETWORK SIGNIN</h1>
+					<p>SIGN INTO YOUR DAILY NETWORK ACCOUNT</p>
+					<?php if (isset($message)): ?>
+						<p><?php echo $message; ?></p>
+					<?php endif ?>
 				</center>
-			</form>
+
+				<form action="" method="post">
+					<input class="form-control" type="text" name="credis" placeholder="Email eller brugernavn..."><br>
+					<input class="form-control" type="password" name="password" placeholder="Password..."><br>
+					<center>
+						<input type="submit" class="btn btn-outline-success" value="Log Ind">
+						<a href="register.php" class="btn btn-outline-info">Registrer</a>
+					</center>
+				</form>
+			</div>
+
+			<div class="col-sm-4">
+			</div>
 		</div>
 
-		<div class="col-sm-4">
-		</div>
-	</div>
+	<?php else: ?>
+
+		<h1>WELCOME, <?php echo $_SESSION["user_data"]["user_identifier"]; ?></h1>
+		<form action="" method="post">
+			<input type="submit" name="signout" value="Log Ud">
+		</form>
+
+	<?php endif ?>
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 <?php
+    session_start();
     require "Assets/PHP/Includes/settings.php";
     require $AutoLoadPath;
 
     $serverList = $server->GetServerList();
     $comOnlinePlayers = 0;
+    $userManager = null;
 
     // Counting all of the online players for all of the servers
     foreach ((array) $serverList as $serveritem) {
@@ -60,7 +62,7 @@
 
         <header-buttom>
             <online-count>
-                ONLINE MEDLEMMER: <?php echo $comOnlinePlayers; $userManager->Login("asd"); ?>
+                ONLINE MEDLEMMER: <?php echo $comOnlinePlayers; ?>
             </online-count>
         </header-buttom>
     </header>

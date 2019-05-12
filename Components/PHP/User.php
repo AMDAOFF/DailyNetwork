@@ -1,13 +1,44 @@
 <?php 
+
 	/**
 	 * UserManager class
 	 */
 	class UserManager
 	{
+
 		// Signing in the specified user...
 		function Login($UserData)
 		{
-			
+			include '../Assets/PHP/Includes/connection.php';
+
+			$records = $conn->prepare('SELECT * FROM daily_users WHERE user_email = :email OR user_steamid = :steamid OR user_identifier = :identifier');
+			$records->bindParam(':email', $UserData['credis']);
+			$records->bindParam(':steamid', $UserData['credis']);
+			$records->bindParam(':identifier', $UserData['credis']);
+			$records->execute();
+			$results = $records->fetch(PDO::FETCH_ASSOC);
+
+			$message = '';
+
+			if (password_verify($UserData['password'], $results['user_password'])) {
+				$_SESSION['user_data'] = $results;
+				header("Location: /Account/index.php");
+			}
+
+			else {
+				return 'Sorry, those credentials do not match';
+			}
+
+
+			// if(password_verify($UserData['pass'], $results['user_password']) ){
+
+			// 	$_SESSION['user_id'] = $results['id'];
+			// 	header("Location: index.php");
+
+			// } else {
+			// 	return 'Sorry, those credentials do not match';
+			// }
+
 		}
 
 		// Registering a new user...
@@ -32,13 +63,21 @@
 			$stmt->bindParam(':password', $userpass);
 
 			if( $stmt->execute() ) {
-				echo 'Du er nu oprettet som et medlem på DailyNetwork.dk';
+				return 'Du er nu oprettet som et medlem på DailyNetwork.dk';
 			}
 
 			else {
-				echo 'Der skete en fejl i oprettelsen';
-				print_r($stmt->errorInfo()[2]);
+				return 'Der skete en fejl i oprettelsen';
+				// print_r($stmt->errorInfo()[2]);
 			}
+		}
+
+		// Signing out the user that is signed in...
+		function Logout()
+		{
+			session_destroy();
+			session_unset();
+			header("Location:" . $BasePath);
 		}
 	}
 ?>

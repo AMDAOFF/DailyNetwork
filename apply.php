@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require "Assets/PHP/Includes/settings.php";
 	require $AutoLoadPath;
 ?>

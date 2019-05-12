@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "Components/PHP/autoload.php";
     $servers = $server->GetServerList();
 ?>

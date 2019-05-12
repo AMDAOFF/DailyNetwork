@@ -116,3 +116,11 @@ nav-title {
   overflow: hidden;
   background-color: #f1f1f1;
 } 
+
+.success-msg {
+	color: var(--comm-col-success);
+}
+
+.error-msg {
+	color: var(--comm-col-failed);
+}

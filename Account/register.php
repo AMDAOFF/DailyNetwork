@@ -1,9 +1,10 @@
 <?php 
+	session_start();
 	require "../Assets/PHP/Includes/settings.php";
 	require $AutoLoadPath;
 
 	if (!empty($_POST)) {
-		$userManager->Register($_POST);
+		$message = $userManager->Register($_POST);
 	}
 ?>
 
@@ -22,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> 
 </head>
 <body>
-	<!-- <?php include('../Assets/PHP/navigation.php'); ?> -->
+	<?php include('../Assets/PHP/navigation.php'); ?>
 	<br><br><br><br><br>
 	<br><br><br><br><br>
 
@@ -34,6 +35,10 @@
 				<center>
 					<h1>DailyNetwork Signin</h1>
 					<p>Sign in to DailyNetwork community servers</p>
+						
+					<?php if (!empty($message)): ?>
+						<p class="success-msg"><?php echo $message; ?></p>
+					<?php endif ?>
 
 					<form action="" method="post">
 						<input class="form-control" type="text" name="name" placeholder="Navn..."><br>
