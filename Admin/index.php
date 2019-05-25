@@ -12,7 +12,9 @@
 	}
 
 	if (isset($_SESSION["user_id"])) {
+		echo "SESSION";
 		$ud = $userManager->GetUserData($_SESSION["user_id"]);
+		$access = $userManager->HasAccess($ud["role_name"], "admin/index");
 	}
 ?>
 
@@ -61,6 +63,10 @@
 			<div class="col-sm-4">
 			</div>
 		</div>
+
+	<?php elseif($access == false): ?>
+
+		<h1>ACCESS DENIED</h1>
 
 	<?php else: ?>
 

@@ -18,31 +18,60 @@
 			$records->execute();
 			$results = $records->fetch(PDO::FETCH_ASSOC);
 
-			print_r($results);
-
 			$message = '';
 
 			if (password_verify($UserData['password'], $results['user_password'])) {
-				$_SESSION['user_data'] = $results;
+				$_SESSION['user_id'] = $results["user_id"];
 				header("Location: /Account");
 			}
 
 			else {
 				return 'Sorry, those credentials do not match';
 			}
+		}
 
+		// Getting the user id's info that is parsed
+		function GetUserData($UserID)
+		{
+			include '../Assets/PHP/Includes/connection.php';
 
-			// if(password_verify($UserData['pass'], $results['user_password']) ){
+			$records = $conn->prepare('SELECT * FROM daily_users INNER JOIN daily_roles ON daily_users.user_role = daily_roles.role_id WHERE user_id = :userid');
 
-			// 	$_SESSION['user_id'] = $results['id'];
-			// 	header("Location: index.php");
+			$records->bindParam(':userid', $UserID);
+			$records->execute();
+			$results = $records->fetch(PDO::FETCH_ASSOC);
+			return $results;
+		}
 
-			// } else {
-			// 	return 'Sorry, those credentials do not match';
-			// }
+		// Checking if the user has access to the specified page
+		function HasAccess($RoleID, $Page)
+		{
+			include '../Assets/PHP/Includes/connection.php';
+
+			$records = $conn->prepare("SELECT * FROM daily_permissions WHERE perm_page = :page");
+
+			$records->bindParam(':page', $Page);
+			$records->execute();
+			$results = $records->fetch(PDO::FETCH_ASSOC);
+
+			$directArray = json_decode($results["perm_groups"]);
+			$finalArray = $directArray->data;
+
+			echo $RoleID;
+			echo $Page;
+
+			if (in_array($RoleID, $finalArray)) {
+				echo "TRUE";
+				return true;
+			}
+			else {
+				echo "FALSE";
+				return false;
+			}
 
 		}
 
+		// Checking if an user does exist
 		function CheckExistance($Value)
 		{
 			include '../Assets/PHP/Includes/connection.php';
